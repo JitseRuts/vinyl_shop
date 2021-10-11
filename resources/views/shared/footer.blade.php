@@ -1,3 +1,3 @@
 <footer class="container border-top">
-    <p>Footer</p>
+    <p>The Vinyl Shop - &copy;{{date('Y')}}</p>
 </footer>

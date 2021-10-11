@@ -9,8 +9,8 @@
     ?>
 </ul>
 
-<ul>
+{{--<ul>
     @foreach ($records as $key => $record)
         <li>Record {{$key}}: {{ $record }}</li>
     @endforeach
-</ul>
+</ul>--}}
