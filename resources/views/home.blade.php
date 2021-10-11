@@ -1,3 +1,8 @@
-<h1>The Vinyl Shop</h1>
+@extends('layouts.template')
 
-<p>Welcoe to the website of The Vinyl Shop, a large online store with lots of (classic) vinyl records</p>
+@section('title', 'Welcome to the Vinyl Shop')
+
+@section('main')
+<h1>The Vinyl Shop</h1>
+<p>Welcome to the website of The Vinyl Shop, a large online store with lots of (classic) vinyl records</p>
+@endsection

@@ -1,7 +1,10 @@
-<h1>Contact info</h1>
+@extends('layouts.template')
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, molestias veniam. Ad blanditiis doloribus dolorum
-    illum in ipsum maiores minus nesciunt quas vel. Dolorum natus omnis quibusdam quisquam ratione velit.</p>
+@section('title', 'Welcome to the Vinyl Shop')
+
+@section('main')
+<h1>Contact info</h1>
 
 <p>The Vinyl Shop</p>
 <p><a href="mailto:info@thevinylshop.com">info@thevinylshop.com</a></p>
+@endsection
