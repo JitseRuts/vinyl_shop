@@ -17,11 +17,56 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->boolean('active')->default(true);
+            $table->boolean('admin')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        // Insert some users (inside the up-function!)
+        DB::table('users')->insert(
+            [
+                [
+                    'name' => 'John Doe',
+                    'email' => 'john.doe@example.com',
+                    'admin' => true,
+                    'password' => Hash::make('admin1234'),
+                    'created_at' => now(),
+                    'email_verified_at' => now()
+                ],
+                [
+                    'name' => 'Jane Doe',
+                    'email' => 'jane.doe@example.com',
+                    'admin' => false,
+                    'password' => Hash::make('user1234'),
+                    'created_at' => now(),
+                    'email_verified_at' => now()
+                ],
+                [
+                    'name' => 'Jitse Ruts',
+                    'email' => 'jitseruts@outlook.com',
+                    'admin' => true,
+                    'password' => Hash::make('admin1234'),
+                    'created_at' => now(),
+                    'email_verified_at' => now()
+                ]
+            ]
+        );
+
+        // Add 40 dummy users inside a loop
+        for ($i = 0; $i <= 40; $i++) {
+            DB::table('users')->insert(
+                [
+                    'name' => "ITF User $i",
+                    'email' => "itf_user_$i@mailinator.com",
+                    'password' => Hash::make("itfuser$i"),
+                    'created_at' => now(),
+                    'email_verified_at' => now()
+                ]
+            );
+        }
     }
 
     /**
