@@ -41,7 +41,7 @@ Route::view('contact-us', 'contact');
 // New version with groups
 Route::prefix('admin')->group(function () {
     Route::redirect('/', '/admin/records');
-   Route::get('records', 'Admin\RecordController@index');
+    Route::get('records', 'Admin\RecordController@index');
 });
 
 // Ter Illustratie
@@ -50,12 +50,15 @@ Route::prefix('api')->group(function () {
         return User::get();
     });
     Route::get('records', function () {
-    return Record::with('genre')->get();
+        return Record::with('genre')->get();
     });
     Route::get('genres', function () {
         return Genre::with('records')->get();
     });
 });
+
+Route::get('shop', 'ShopController@index');
+Route::get('shop/{id}', 'ShopController@show');
 
 
 
