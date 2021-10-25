@@ -10,9 +10,22 @@ use Json;
 class ShopController extends Controller
 {
     // Master Page: http://vinyl_shop.test/shop or http://localhost:3000/shop
-    public function index()
+    public function index(Request $request)
     {
-        $records = Record::with('genre')->paginate(12);
+        $genre_id = $request->input('genre_id') ?? '%'; //OR $genre_id = $request->genre_id ?? '%';
+        $artist_title = '%' . $request->input('artist') . '%'; // OR $artist_title = '%' . $request->artist . '%';
+        $records = Record::orderBy('artist')
+            ->where(function ($query) use ($artist_title, $genre_id) {
+                $query->where('artist', 'like', $artist_title)
+                    ->where('genre_id', 'like', $genre_id);
+            })
+            ->orWhere(function ($query) use ($artist_title, $genre_id) {
+                $query->where('title', 'like', $artist_title)
+                    ->where('genre_id', 'like', $genre_id);
+            })
+            ->where('genre_id', 'like', $genre_id)
+            ->paginate(12)
+            ->appends(['artist' => $request->input('artist'), 'genre_id' => $request->input('genre_id')]);
         foreach ($records as $record) {
             $record->cover = $record->cover ?? "https://coverartarchive.org/release/$record->title_mbid/front-250.jpg";
         }
