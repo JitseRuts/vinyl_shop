@@ -10957,3 +10957,8 @@ form .btn {
   display: none;
 }
 
+a.btn.disabled {
+  cursor: not-allowed;
+  pointer-events: all;
+}
+

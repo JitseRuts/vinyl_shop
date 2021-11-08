@@ -72,7 +72,7 @@
             </button>
         </div>
     @endif
-    {{ $records->links() }}
+    {{ $records->withQueryString()->links() }}
     <div class="row">
         @foreach($records as $record)
             <div class="col-sm-6 col-md-4 col-lg-3 mb-3 d-flex align-items-stretch">
@@ -95,5 +95,5 @@
             </div>
         @endforeach
     </div>
-    {{ $records->links() }}
+    {{ $records->withQueryString()->links() }}
 @endsection

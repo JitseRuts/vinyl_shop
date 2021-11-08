@@ -59,6 +59,7 @@ Route::prefix('api')->group(function () {
 
 Route::get('shop', 'ShopController@index');
 Route::get('shop/{id}', 'ShopController@show');
+Route::get('itunes', 'ItunesController@index');
 
 
 
