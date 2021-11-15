@@ -10952,8 +10952,7 @@ main {
   cursor: pointer;
 }
 
-.cardShopMaster .btn,
-form .btn {
+.cardShopMaster .btn {
   display: none;
 }
 

@@ -5,7 +5,7 @@ main {
 .cardShopMaster {
     cursor: pointer;
 }
-.cardShopMaster .btn, form .btn {
+.cardShopMaster .btn{
     display: none;
 }
 
@@ -13,3 +13,4 @@ a.btn.disabled{
     cursor: not-allowed;
     pointer-events: all;
 }
+

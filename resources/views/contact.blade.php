@@ -45,7 +45,7 @@
                           minlength="10">{{ old('message') }}</textarea>
                 <div class="invalid-feedback">{{ $errors->first('message') }}</div>
             </div>
-            <button type="submit" class="btn btn-success d-block">Send Message</button>
+            <button type="submit" class="btn btn-success">Send Message</button>
         </form>
     @endif
 @endsection
