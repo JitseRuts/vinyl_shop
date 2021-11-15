@@ -60,6 +60,14 @@ Route::prefix('api')->group(function () {
 Route::get('shop', 'ShopController@index');
 Route::get('shop/{id}', 'ShopController@show');
 Route::get('itunes', 'ItunesController@index');
+Route::view('contact-us', 'contact');
+Route::get('contact-us', 'ContactUsController@show');
+Route::post('contact-us', 'ContactUsController@sendEmail');
+
+Route::get('contact', function () {
+    $me = ['name' => env('MAIL_FROM_NAME')];
+    return view('contact', $me);
+});
 
 
 
