@@ -78,3 +78,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->prefix('user')->group(function () {
+    Route::redirect('/', '/user/profile');
+    Route::get('profile', 'User\ProfileController@edit');
+    Route::post('profile', 'User\ProfileController@update');
+    Route::get('password', 'User\PasswordController@edit');
+    Route::post('password', 'User\PasswordController@update');
+});
