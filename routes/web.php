@@ -41,6 +41,7 @@ Route::view('contact-us', 'contact');
 // New version with groups
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::redirect('/', '/admin/records');
+    Route::resource('genres', 'Admin\GenreController');
     Route::get('records', 'Admin\RecordController@index');
 });
 
@@ -71,9 +72,6 @@ Route::get('contact', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-
 
 Auth::routes();
 

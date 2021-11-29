@@ -32,7 +32,6 @@ class ProfileController extends Controller
         // Flash a success message to the session
         session()->flash('success', 'Your profile has been updated');
 
-
         // Redirect to previous page
         return back();
     }
